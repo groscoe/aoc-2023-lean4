@@ -21,5 +21,6 @@ def void (action : IO a) : IO Unit := action *> pure ()
 def main : IO Unit := do
   let indexedSolutions := List.enumFrom 1
     [ Day1.solutions
+    , Day2.solutions
     ]
   List.forM indexedSolutions (Function.uncurry printDay)
