@@ -1,6 +1,5 @@
-import Mathlib.Control.Traversable.Basic
-
 import «AdventOfCode2023»
+import Mathlib.Init.Function
 
 open DaySolution
 
@@ -22,5 +21,6 @@ def main : IO Unit := do
   let indexedSolutions := List.enumFrom 1
     [ Day1.solutions
     , Day2.solutions
+    , Day3.solutions
     ]
   List.forM indexedSolutions (Function.uncurry printDay)

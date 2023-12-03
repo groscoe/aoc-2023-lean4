@@ -3,3 +3,4 @@
 import «AdventOfCode2023».DaySolution
 import «AdventOfCode2023».Day1
 import «AdventOfCode2023».Day2
+import «AdventOfCode2023».Day3
