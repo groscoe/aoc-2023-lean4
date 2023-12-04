@@ -1,9 +1,7 @@
-import Lean.Data.HashSet
 import Lean.Data.HashMap
 import AdventOfCode2023.DaySolution
 
 open DaySolution
-open Lean.HashSet
 open Lean.HashMap
 
 namespace Day3

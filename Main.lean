@@ -2,6 +2,7 @@ import «AdventOfCode2023»
 import Mathlib.Init.Function
 
 open DaySolution
+open Utils
 
 def printDay : Nat -> DaySolution -> IO Unit
   -- FIXME: remove duplicated code for part 1
@@ -15,12 +16,11 @@ def printDay : Nat -> DaySolution -> IO Unit
       let part2Solution <- part2
       IO.println s!"Day {day}, part 2: {part2Solution}"
 
-def void (action : IO a) : IO Unit := action *> pure ()
-
 def main : IO Unit := do
   let indexedSolutions := List.enumFrom 1
     [ Day1.solutions
     , Day2.solutions
     , Day3.solutions
+    , Day4.solutions
     ]
   List.forM indexedSolutions (Function.uncurry printDay)
