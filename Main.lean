@@ -22,5 +22,6 @@ def main : IO Unit := do
     , Day2.solutions
     , Day3.solutions
     , Day4.solutions
+    , Day5.solutions
     ]
   List.forM indexedSolutions (Function.uncurry printDay)

@@ -1,4 +1,5 @@
 import Lean.Data.Parsec
+import Std.Data.Array.Basic
 
 open Lean.Parsec
 
@@ -23,5 +24,7 @@ def token (p : Lean.Parsec a) : Lean.Parsec a := p <* spaces
 def keyword (w : String) : Lean.Parsec Unit := void $ token $ pstring w
 
 def sum [Add α] [OfNat α 0] (xs: Array α) : α := Array.foldl (· + ·) 0 xs
+
+def arrayMin! [Ord α] [Inhabited α] (arr : Array α) : α := arr.min?.get!
 
 end Utils
