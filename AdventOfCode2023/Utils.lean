@@ -18,7 +18,7 @@ def digitsToNat (digits : Array Char) : Nat :=
 
 def nat : Lean.Parsec Nat := do
   let digits <- Lean.Parsec.many1 Lean.Parsec.digit
-  pure $ digitsToNat digits 
+  pure $ digitsToNat digits
 
 def spaces : Lean.Parsec Unit := void $ many (pchar ' ')
 
@@ -31,5 +31,15 @@ def sum [Add α] [OfNat α 0] (xs: Array α) : α := Array.foldl (· + ·) 0 xs
 def prod [Mul α] [OfNat α 1] (xs: Array α) : α := Array.foldl (· * ·) 1 xs
 
 def arrayMin! [Ord α] [Inhabited α] (arr : Array α) : α := arr.min?.get!
+
+def compareLists [Ord α] : List α -> List α -> Ordering
+| x::xs, y::ys => match compare x y with
+  | Ordering.eq => compareLists xs ys
+  | ord => ord
+| [], [] => Ordering.eq
+| [], _ => Ordering.lt
+| _, [] => Ordering.gt
+
+instance ordList [Ord α] : Ord (List α) where compare := compareLists
 
 end Utils
