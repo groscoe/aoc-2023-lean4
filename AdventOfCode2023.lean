@@ -10,3 +10,4 @@ import «AdventOfCode2023».Day4
 import «AdventOfCode2023».Day5
 import «AdventOfCode2023».Day6
 import «AdventOfCode2023».Day7
+import «AdventOfCode2023».Day8

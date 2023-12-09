@@ -1,7 +1,7 @@
 namespace DaySolution
 
 inductive DaySolution where
-  | partialSolution : IO String -> DaySolution
-  | completeSolution : IO String -> IO String -> DaySolution
+  | partialSolution (part1 : IO String)
+  | completeSolution (part1 : IO String) (part2 : IO String)
 
 end DaySolution

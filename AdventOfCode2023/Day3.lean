@@ -116,7 +116,7 @@ def getAdjacentNumbers (pos : Pos) (numbers : Array PartNumber) : Array PartNumb
   numbers.filter isAdjacent
   where
     isAdjacent
-      | { startPos, endPos, digits} =>
+      | { startPos, endPos, digits := _} =>
           ( pos.line == startPos.line -- same line
             || startPos.line == pos.line + 1 -- or above a number
             || pos.line == startPos.line + 1 -- or below a number

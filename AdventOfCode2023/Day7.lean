@@ -141,7 +141,7 @@ def part2 : IO String := solve pt2Rank sortHands
         | FullHouse 'J' p => FiveOfAKind p
         | FullHouse t 'J' => FiveOfAKind t
         | ThreeOfAKind 'J' [k1, k2] => FourOfAKind k1 [k2]
-        -- NOTE: J will always be last card, since `rest` is ordered
+        -- NOTE: J will always be the last card, since `rest` is ordered
         | ThreeOfAKind t [k1, 'J'] => FourOfAKind t [k1]
         | TwoPair 'J' l [k] => FourOfAKind l [k]
         | TwoPair h 'J' [k] => FourOfAKind h [k]
