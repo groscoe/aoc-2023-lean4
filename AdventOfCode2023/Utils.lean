@@ -20,6 +20,12 @@ def nat : Lean.Parsec Nat := do
   let digits <- Lean.Parsec.many1 Lean.Parsec.digit
   pure $ digitsToNat digits
 
+def int : Lean.Parsec Int :=
+  (pchar '-' *> Int.neg <$> nat)
+  <|> ↑nat
+
+def lineEnd : Lean.Parsec Unit := skipChar '\n' <|> eof
+
 def spaces : Lean.Parsec Unit := void $ many (pchar ' ')
 
 def token (p : Lean.Parsec a) : Lean.Parsec a := p <* spaces
